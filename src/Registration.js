@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {auth} from './firebase'
+import {auth} from './fire-base.js'
 
 function Registration() {
     const [data,setData] = useState({
@@ -13,11 +13,14 @@ function Registration() {
     const signUp = e =>{
         e.preventDefault();
         auth.createUserWithEmailAndPassword(email,password).then(
-            user => console.log(user)).catch(
+             user => console.log(user)).catch(
                 err => console.log(err))
     }
     const signIn = e =>{
         e.preventDefault();
+        auth.signInWithEmailAndPassword(email,password).then(
+            user => console.log(user)).catch(
+                err => console.log(err))
     }
   return (
     <div>
